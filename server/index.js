@@ -44,7 +44,7 @@ app.get("/downloadWhite", (req, res) => {
   file.pipe(res);
 });
 
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   connection.query("select * from ips", (error, results) => {
     if (error) throw error;
     console.log("server gives data to frontend.");
@@ -87,7 +87,7 @@ app.get("/:exportFile", (req, res) => {
   });
 });
 
-app.post("/", (req, res) => {
+app.post("/api", (req, res) => {
   let data = {
     ipAddr: req.body.ipAddr,
     inputDate: req.body.inputDate,
@@ -103,7 +103,7 @@ app.post("/", (req, res) => {
   });
 });
 
-app.delete("/", (req, res) => {
+app.delete("/api", (req, res) => {
   let data = { ipAddr: req.query.data };
   console.log("ipAddr: ", data);
 
@@ -115,7 +115,7 @@ app.delete("/", (req, res) => {
   });
 });
 
-app.put("/", (req, res) => {
+app.put("/api", (req, res) => {
   let memo = req.body.data.memo;
   let ip = req.body.data.ipAddr;
 
