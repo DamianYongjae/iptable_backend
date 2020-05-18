@@ -13,10 +13,10 @@ var connection = mysql.createConnection({
   host: "localhost",
   user: "root",
   password: "Aa12345!!",
-  database: "Iptable"
+  database: "Iptable",
 });
 
-connection.connect(err => {
+connection.connect((err) => {
   if (err) {
     console.log("error!!!!!");
     throw err;
@@ -27,7 +27,7 @@ connection.connect(err => {
 app.use(bodyParser.json());
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 app.use(pino);
@@ -79,7 +79,7 @@ app.get("/:exportFile", (req, res) => {
 
     fastcsv
       .write(jsonData, { header: false })
-      .on("finish", function() {
+      .on("finish", function () {
         console.log("creating file is finished!");
       })
       .pipe(bl);
@@ -92,7 +92,7 @@ app.post("/api", (req, res) => {
     ipAddr: req.body.ipAddr,
     inputDate: req.body.inputDate,
     memo: req.body.memo,
-    isBlack: req.body.isBlack
+    isBlack: req.body.isBlack,
   };
   console.log("new row added: ", data);
   let sql = "insert into ips set ?";
