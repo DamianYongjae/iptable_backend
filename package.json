@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-generator": "^4.16.1",
     "express-pino-logger": "^4.0.0",
     "fast-csv": "^4.1.1",
